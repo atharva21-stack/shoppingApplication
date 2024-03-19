@@ -1,4 +1,4 @@
-package payment;
+package shoppingapp.payment;
 
 public class PaymentProcessor {
 
