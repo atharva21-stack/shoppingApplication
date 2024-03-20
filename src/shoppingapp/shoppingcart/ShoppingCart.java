@@ -5,11 +5,19 @@ import java.util.List;
 import shoppingapp.catalog.Product;
 
 public class ShoppingCart {
-    private static ShoppingCart instance;
     private List<Product> items;
+    private String customerName;
+    private String customerEmail;
+    private static ShoppingCart instance;
+   
 
     private ShoppingCart() {
         items = new ArrayList<>();
+    }
+    public ShoppingCart(List<Product> items, String customerName, String customerEmail) {
+        this.items = items;
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
     }
 
     public static ShoppingCart getInstance() {

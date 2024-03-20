@@ -48,29 +48,26 @@ public class ProductCatalog extends JFrame {
         setSize(800, 600);
         setLocationRelativeTo(null);
 
-        // Sort products by price (ascending)
         List<Product> productList = createProductListSortedByPrice();
 
-        // Create main panel with border layout
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
 
-        // Create top panel for back button
         JPanel topPanel = new JPanel(new BorderLayout());
         JButton backButton = new JButton("<-");
-        backButton.setIcon(new ImageIcon("back_arrow_icon.png")); // Change to the actual path of your back arrow icon
+        backButton.setIcon(new ImageIcon("back_arrow_icon.png")); 
         backButton.addActionListener(e -> navigateBack());
         topPanel.add(backButton, BorderLayout.WEST);
         mainPanel.add(topPanel, BorderLayout.NORTH);
 
-        // Create panel for products with grid layout
-        JPanel productPanel = new JPanel(new GridLayout(0, 3, 20, 20)); // 3 columns
+       
+        JPanel productPanel = new JPanel(new GridLayout(0, 3, 20, 20)); 
         addProductsToPanel(productPanel, productList);
         JScrollPane scrollPane = new JScrollPane(productPanel);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         mainPanel.add(scrollPane, BorderLayout.CENTER);
 
-        // Create bottom panel for buttons
+       
         JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 10, 10));
         JButton checkoutButton = new JButton("Checkout");
         checkoutButton.addActionListener(e -> openCheckoutPage());
@@ -85,10 +82,10 @@ public class ProductCatalog extends JFrame {
 
     private List<Product> createProductListSortedByPrice() {
         logger.debug("Creating sorted list of products by price.");
-     // Create products using the ProductFactory
+    
         List<Product> productList = new ArrayList<>();
         for (int i = 0; i < PRODUCT_NAMES.length; i++) {
-            // Provide "grocery" as the product type
+            
             Product product = ProductFactory.createProduct("grocery", PRODUCT_NAMES[i], PRODUCT_PRICES[i], PRODUCT_BRANDS[i], PRODUCT_IMAGE_PATHS[i]);
             productList.add(product);
         }
@@ -101,7 +98,7 @@ public class ProductCatalog extends JFrame {
         for (Product product : productList) {
             JPanel productPanel = new JPanel(new BorderLayout());
 
-            // Load image from path
+            
             URL imageURL = getClass().getResource(product.getImagePath());
             if (imageURL != null) {
                 ImageIcon imageIcon = new ImageIcon(imageURL);
@@ -111,15 +108,15 @@ public class ProductCatalog extends JFrame {
                 System.err.println("Image not found: " + product.getImagePath());
             }
 
-            // Product name and price labels
+           
             JLabel nameLabel = new JLabel(product.getName());
             JLabel priceLabel = new JLabel("$" + String.format("%.2f", product.getPrice()));
 
-            // Quantity selector with + and - buttons
+           
             JPanel quantityPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
             JLabel quantityLabel = new JLabel("Quantity:");
-            JTextField quantityField = new JTextField(3); // Field to display quantity
-            quantityField.setText("1"); // Default quantity
+            JTextField quantityField = new JTextField(3); 
+            quantityField.setText("1"); 
             JButton addButton = new JButton("+");
             addButton.addActionListener(e -> {
                 int quantity = Integer.parseInt(quantityField.getText());

@@ -10,20 +10,20 @@ public class UserAuthentication {
     private Map<String, String> userCredentials;
 
     public UserAuthentication() {
-        // Initialize user credentials (username, password)
+       
         userCredentials = new HashMap<>();
         userCredentials.put("user1", "password1");
         userCredentials.put("user2", "password2");
-        // Add more users as needed
+
     }
 
     public boolean authenticateUser(String username, String password) {
-        // Check if the provided username exists and the password matches
+        
         boolean isAuthenticated = userCredentials.containsKey(username) && userCredentials.get(username).equals(password);
         if (isAuthenticated) {
-            logger.info("User '{}' authenticated successfully.", username); // Log successful authentication
+            logger.info("User '{}' authenticated successfully.", username); 
         } else {
-            logger.warn("Failed authentication attempt for user '{}'.", username); // Log failed authentication attempt
+            logger.warn("Failed authentication attempt for user '{}'.", username); 
         }
         return isAuthenticated;
     }

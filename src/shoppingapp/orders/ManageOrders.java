@@ -18,10 +18,10 @@ public class ManageOrders extends JFrame {
         setSize(600, 400);
         setLocationRelativeTo(null);
 
-        // Create main panel with grid layout
-        JPanel mainPanel = new JPanel(new GridLayout(orders.size() + 1, 1)); // +1 for header row
+        
+        JPanel mainPanel = new JPanel(new GridLayout(orders.size() + 1, 1)); 
 
-        // Add header row
+        
         JPanel headerPanel = new JPanel(new GridLayout(1, 5));
         headerPanel.add(new JLabel("Order ID"));
         headerPanel.add(new JLabel("Product"));
@@ -30,7 +30,7 @@ public class ManageOrders extends JFrame {
         headerPanel.add(new JLabel("Date"));
         mainPanel.add(headerPanel);
 
-        // Add order details
+       
         for (Order order : orders) {
             JPanel orderPanel = new JPanel(new GridLayout(1, 5));
             orderPanel.add(new JLabel(order.getId()));
@@ -41,7 +41,7 @@ public class ManageOrders extends JFrame {
             mainPanel.add(orderPanel);
         }
 
-        // Add main panel to frame
+        
         JScrollPane scrollPane = new JScrollPane(mainPanel);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         add(scrollPane);
@@ -50,6 +50,6 @@ public class ManageOrders extends JFrame {
     }
 
 	public ManageOrders(List<Product> cartItems) {
-		// TODO Auto-generated constructor stub
+		
 	}
 }

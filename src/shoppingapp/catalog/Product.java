@@ -4,13 +4,13 @@ public class Product {
     private String name;
     private double price;
     private String brand;
-    private String imagePath; // New field for image path
+    private String imagePath; 
 
     public Product(String name, double price, String brand, String imagePath) {
         this.name = name;
         this.price = price;
         this.brand = brand;
-        this.imagePath = imagePath; // Set image path
+        this.imagePath = imagePath; 
     }
 
     // Getters and setters
